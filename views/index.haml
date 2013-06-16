@@ -16,13 +16,12 @@
 - content_for :header do
   %h1= app_name
 
-%div#status
-  %p.rocketio
-  %p.text
-
 - unless @user
   %h2 Please Login
 - else
+  %div#status
+    %p.rocketio
+    %p.text
   %h2 Your Issues
   %p#repos_status
   %ul#repos

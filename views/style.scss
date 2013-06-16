@@ -13,7 +13,7 @@ html {
 
 body {
   @include content-box;
-  background-color: #28A061;
+  background-color: #5AA4B8;
   color : $font_black;
   height: 100%;
 }
@@ -55,6 +55,7 @@ body {
 }
 
 #status {
+  float: right;
   text-align: right;
 }
 
