@@ -26,13 +26,14 @@ io.on :get_issues do |data, client|
   else
     EM::defer do
       begin
+        io.push :status, "requesting github.."
         client_ = Octokit::Client.new(:oauth_token => user.oauth_token)
         user_ = client_.user
         pages = (user_.public_repos + user_.total_private_repos)/100 + 1
         repos = []
         1.upto(pages).each{|page|
           $logger.info "reading #{user.name}'s page #{page}.."
-          io.push :status, "reading page #{page}/#{pages}..", :to => client.session
+          io.push :status, "reading issues page #{page}/#{pages}..", :to => client.session
           client_.repos(user.name, :per_page => 100, :page => page).each{|repo|
             next if repo.open_issues_count < 1
             next if Time.parse(repo.updated_at) < Time.now - 60*60*24*60
