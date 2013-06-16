@@ -56,6 +56,7 @@ Deploy on Heroku
 
     % heroku create --stack cedar YOUR-APP-NAME
     % heroku addons:add memcachier:dev
+    % heroku config:set WEBSOCKET=false
     % heroku config:set GITHUB_APP_ID=abcd1234asdf
     % heroku config:set GITHUB_APP_SECRET=asdf135hujikohujiko71sdfcxvoip
     % heroku config:set SESSION_SECRET=foobar1234
