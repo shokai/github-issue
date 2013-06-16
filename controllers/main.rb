@@ -36,7 +36,7 @@ io.on :get_issues do |data, client|
           io.push :status, "reading issues page #{page}/#{pages}..", :to => client.session
           client_.repos(user.name, :per_page => 100, :page => page).each{|repo|
             next if repo.open_issues_count < 1
-            next if Time.parse(repo.updated_at) < Time.now - 60*60*24*60
+            next if Time.parse(repo.updated_at) < Time.now - 60*60*24*90
             repo_ = {
               :name => repo.full_name,
               :url => repo.html_url,
