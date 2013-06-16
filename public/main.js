@@ -20,7 +20,7 @@ var repos = (new function(){
     for(var i = 0; i < sorted_repos.length; i++){
       var repo = sorted_repos[i];
       var li = $("<li>");
-      li.append( $("<h3>").html($("<a>").attr("href",repo.url).attr("target","_blank").text(repo.url) ));
+      li.append( $("<h3>").html($("<a>").attr("href",repo.url).attr("target","_blank").text(repo.name) ));
       if(typeof repo.description === "string" && repo.description.length > 0){
         li.append( $("<p>").text(repo.description));
       }
