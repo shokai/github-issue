@@ -1,5 +1,6 @@
 $font_black : #222;
 $font_white : #FFF;
+$link_color : #4B7EC2;
 
 @mixin content-box {
   margin: 10px;
@@ -33,7 +34,13 @@ body {
   height: 36px;
   padding: 12px 5px 2px 5px;
   background-color: #FFFFFF;
-  margin-left: 5px;
+  margin: 3px 5px 3px 5px;
+}
+
+#toolbar span.button {
+  text-decoration: underline;
+  color: $link_color;
+  cursor: pointer;
 }
 
 #toolbar img {
@@ -57,7 +64,7 @@ ul li{
 }
 
 a, a:visited, a:hover {
-  color: #4B7EC2;
+  color: $link_color;
 }
 
 #footer {

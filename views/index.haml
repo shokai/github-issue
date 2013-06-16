@@ -4,6 +4,8 @@
       alert("error: #{err}");
 
 - if @user
+  - content_for :toolbar do
+    %span.item.button#btn_reload reload
   - content_for :html_foot do
     :javascript
       var session_id = "#{session[:id]}";
