@@ -1,0 +1,29 @@
+- if err = error?
+  - content_for :html_foot do
+    :javascript
+      alert("error: #{err}");
+
+- if @user
+  - content_for :html_foot do
+    :javascript
+      var session_id = "#{session[:id]}";
+    %script{:src => "//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"}
+    %script{:src => rocketio_js}
+    %script{:src => "/main.js"}
+
+- content_for :header do
+  %h1= app_name
+
+%div#status
+  %p.rocketio
+  %p.text
+
+- unless @user
+  sample application for
+  %a{:href => "http://developer.github.com/v3/oauth/#web-application-flow"}
+    GitHub API v3
+  %h2 Please Login
+- else
+  %h2 Your Issues
+  %p#repos_status
+  %ul#repos

@@ -1,0 +1,29 @@
+!!!XHTML
+%html
+  %head
+    %meta{"http-equiv" => "Content-Type", :content => "text/html", :charset => "UTF-8"}
+    %title= app_name
+    %link{:rel => :stylesheet, :href => "/style.css"}
+    != yield_content :html_head
+  %body
+    %div#toolbar
+      - unless @user
+        %span.item
+          %a{:href => "/auth"} login
+      - else
+        %span.item
+          %a{:href => "https://github.com/#{@user.name}"}
+            %img{:src => @user.icon}
+            #{@user.name}
+        %span.item
+          %a{:href => "/logout"} logout
+    %div#header
+      != yield_content :header
+    %div#content
+      != yield
+      %hr
+      %div#footer
+        != yield_content :footer
+        - url = "https://github.com/shokai/sinatra-github-oauth-sample"
+        %a{:href => url}= url
+    != yield_content :html_foot

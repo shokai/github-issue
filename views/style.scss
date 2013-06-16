@@ -1,0 +1,65 @@
+$font_black : #222;
+$font_white : #FFF;
+
+@mixin content-box {
+  margin: 10px;
+  font: 12pt  "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  @include content-box;
+  background-color: #28A061;
+  color : $font_black;
+  height: 100%;
+}
+
+#header {
+  color: $font_white;
+  float: left;
+}
+
+#toolbar {
+  float: right;
+  @include content-box;
+  height: 24px;
+  text-align: right;
+}
+
+#toolbar span.item {
+  height: 36px;
+  padding: 12px 5px 2px 5px;
+  background-color: #FFFFFF;
+  margin-left: 5px;
+}
+
+#toolbar img {
+  height: 100%;
+}
+
+#content {
+  clear: both;
+  @include content-box;
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+#status {
+  text-align: right;
+}
+
+ul li{
+  margin-bottom: 10px;
+  font-size: 100%;
+}
+
+a, a:visited, a:hover {
+  color: #4B7EC2;
+}
+
+#footer {
+  text-align: right;
+}
