@@ -1,6 +1,6 @@
 helpers do
   def app_name
-    "GitHub Issue"
+    "GitHub Issue Viewer"
   end
 
   def app_root
