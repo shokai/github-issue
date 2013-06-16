@@ -64,5 +64,6 @@ io.on("github_error", function(err){
 $(function(){
   $("#btn_reload").click(function(){
     io.push("reload_issues", {session_id: session_id});
+    $("#status .text").text("reloading..");
   });
 });

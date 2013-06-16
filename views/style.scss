@@ -3,7 +3,7 @@ $font_white : #FFF;
 $link_color : #4B7EC2;
 
 @mixin content-box {
-  margin: 10px;
+  margin: 10px 10px 10px 10px;
   font: 12pt  "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -55,6 +55,7 @@ body {
 }
 
 #status {
+  @include content-box;
   float: right;
   text-align: right;
 }
