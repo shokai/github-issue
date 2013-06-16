@@ -48,7 +48,7 @@ io.on :get_issues do |data, client|
           }
         }
         io.push :status, "success", :to => client.session
-        Cache["issues"].set user.name, repos, :expire => 3600*6
+        Cache["issues"].set user.name, repos, :expire => 3600*24*3
       rescue => e
         STDERR.puts e
         io.push :github_error, e
