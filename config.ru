@@ -29,4 +29,10 @@ set :haml, :escape_html => true
 enable :sessions
 set :session_secret, (ENV["SESSION_SECRET"] || "this is a default session secret")
 
+case RUBY_PLATFORM
+when /linux/i then EM.epoll
+when /bsd/i then EM.kqueue
+end
+EM.set_descriptor_table_size 20000
+
 run Sinatra::Application
