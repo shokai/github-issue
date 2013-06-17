@@ -9,7 +9,7 @@ io.on :disconnect do |client|
 end
 
 io.on :reload_issues do |data, client|
-  return unless user = user_info(data["session_id"])
+  next unless user = user_info(data["session_id"])
   if repos = Cache["issues"].get(user.name)
     $logger.info "clear #{user.name}'s issues cache"
     Cache["issues"].delete user.name
@@ -18,7 +18,7 @@ io.on :reload_issues do |data, client|
 end
 
 io.on :get_issues do |data, client|
-  return unless user = user_info(data["session_id"])
+  next unless user = user_info(data["session_id"])
   if repos = Cache["issues"].get(user.name)
     repos.each do |repo|
       io.push :issue, repo, :to => client.session
